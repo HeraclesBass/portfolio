@@ -1,108 +1,92 @@
-# D. Michael Piscitelli
+# Hercules Platform
 
-**Full-Stack Software Engineer** | Python, Docker, TypeScript, React, PostgreSQL
+Production microservices infrastructure running **70+ Docker containers** across **44 services** with event-driven architecture, AI agent orchestration, and full observability.
 
-I build multi-tiered, loosely coupled systems. Currently running a microservices platform with **70+ Docker containers** across **44 services** with event-driven architecture, automated CI/CD, and full observability.
+**Live at [herakles.dev](https://herakles.dev)**
 
-10 years of telecom infrastructure domain expertise. I understand both the code and the business it serves.
-
----
-
-## Platform Architecture
+## Architecture
 
 ```
-                        ┌─────────────┐
-                        │   nginx     │ SSL termination, reverse proxy
-                        │  gateway    │ routing to 44+ services
-                        └──────┬──────┘
-                               │
-              ┌────────────────┼────────────────┐
-              │                │                │
-     ┌────────┴───────┐ ┌─────┴──────┐ ┌───────┴────────┐
-     │  Web Apps       │ │  APIs       │ │  Workers       │
-     │  React/Next.js  │ │  Flask/Node │ │  Background    │
-     │  frontends      │ │  backends   │ │  processors    │
-     └────────┬───────┘ └─────┬──────┘ └───────┬────────┘
-              │                │                │
-              └────────────────┼────────────────┘
-                               │
-         ┌─────────────────────┼─────────────────────┐
-         │                     │                     │
-  ┌──────┴──────┐    ┌────────┴────────┐    ┌───────┴───────┐
-  │ PostgreSQL   │    │  Redis          │    │ MongoDB       │
-  │ (primary)    │    │  (cache/pubsub) │    │ (documents)   │
-  └─────────────┘    └─────────────────┘    └───────────────┘
-         │                     │                     │
-  ┌──────┴─────────────────────┴─────────────────────┘
-  │  Observability: Grafana + Prometheus + Loki + Alerting
-  └──────────────────────────────────────────────────────
+                        +---------------+
+                        |    nginx      |  SSL termination, rate limiting
+                        |   gateway     |  routing to 44+ services
+                        +-------+-------+
+                                |
+              +-----------------+-----------------+
+              |                 |                 |
+     +--------+--------+ +-----+------+ +---------+--------+
+     |   Web Apps       | |   APIs      | |   Workers        |
+     |   React/Next.js  | |   Flask     | |   Background     |
+     |   11 frontends   | |   Node.js   | |   processors     |
+     +--------+--------+ +-----+------+ +---------+--------+
+              |                 |                 |
+              +-----------------+-----------------+
+                                |
+         +----------------------+----------------------+
+         |                      |                      |
+  +------+------+     +---------+---------+    +-------+-------+
+  | PostgreSQL   |     |  Redis            |    | MongoDB       |
+  | 5 instances  |     |  8 instances      |    | (documents)   |
+  +--------------+     |  cache + pub/sub  |    +---------------+
+                       +-------------------+
+         |                      |                      |
+  +------+----------------------+----------------------+
+  |  Observability: Grafana + Prometheus + Loki + OpenTelemetry
+  +-------------------------------------------------------------
 ```
 
-**70+ Docker containers** | **44 services** | **Automated deployment with health checks & rollback**
+## Services (44 deployed)
 
----
+| Category | Count | Examples |
+|----------|-------|---------|
+| **AI Products** | 6 | FinePrint, Quits.AI, MBI-QC, Claude Trader |
+| **Web Applications** | 11 | Zeus Terminal, CK Reynolds Tax, CTA Tracker |
+| **APIs & Workers** | 8 | Scraper API, SMS Bridge, Audio Processing |
+| **Infrastructure** | 12 | nginx, Authelia SSO, LLDAP, Vault, Portainer |
+| **Observability** | 7 | Grafana, Prometheus, Loki, OTEL, exporters |
 
-## Selected Projects
+## Key Capabilities
 
-### Hercules Microservices Platform
-`Python` `Docker` `Node.js` `nginx` `PostgreSQL` `Redis` `Grafana` `Prometheus`
+- **AI Agent Orchestration**: 65+ specialized agents coordinated by meta-orchestrator with wave-based parallel execution
+- **Event-Driven Communication**: Redis pub/sub and WebSocket for real-time inter-service messaging
+- **Multi-Tenant Auth**: Authelia SSO with LDAP backend, role-based access control
+- **Zero-Downtime Deployment**: Automated builds, health checks, rollback capability via Docker Compose
+- **Full Observability**: Grafana dashboards per service, Loki log aggregation, Prometheus metrics scraping, automated alerting
+- **50+ Live Domains**: SSL-terminated nginx reverse proxy with rate limiting zones
 
-Production infrastructure running 44+ loosely coupled services with:
-- Event-driven inter-service communication (Redis pub/sub, WebSocket)
-- Multi-tenant authentication (Authelia/LDAP/SSO with RBAC)
-- Continuous delivery pipelines with automated builds, health monitoring, and rollback
-- Full observability: Grafana dashboards, Loki log aggregation, Prometheus metrics
-- Container lifecycle management, port allocation, and SSL termination
-
-### TOS Analyzer
-`Python` `PostgreSQL` `Redis` `NLP`
-
-Automated Terms of Service analysis tool. Ingests ToS documents, applies NLP to identify concerning clauses, tracks changes over time, and generates plain-language summaries. Event-driven processing pipeline with persistent storage and caching.
-
-[View Repository →](https://github.com/HeraclesBass/tos-analyzer)
-
-### Sextant — Location-Aware WiFi Navigation
-`Next.js` `PostgreSQL` `Redis` `Spatial Queries` `Docker`
-
-Indoor positioning and WiFi signal mapping application with real-time location tracking, signal strength analysis, and spatial database queries. Supports disconnected-mode operation for intermittent connectivity environments.
-
-### Fiber Tree Network Visualizer
-`React` `Node.js` `Docker`
-
-Interactive fiber optic network topology explorer. Hierarchical tree-view visualization of network infrastructure and design dependencies. Built for telecom engineering teams managing large-scale fiber deployments.
-
-### Claude Trader Pro
-`Flask` `React` `PostgreSQL` `Redis` `WebSocket`
-
-Event-driven trading platform with real-time market data ingestion, strategy backtesting engine, and multi-service architecture: API gateway, trade execution engine, and background worker processes.
-
-### Quits.ai — Behavioral Health Platform
-`Python` `Twilio SMS` `Redis` `PostgreSQL`
-
-AI-powered behavioral intervention system with real-time SMS integration, intelligent trigger pattern recognition, and escalating support protocols. Full SDLC from requirements through deployment and user support.
-
----
-
-## Technical Stack
+## Tech Stack
 
 | Layer | Technologies |
 |-------|-------------|
-| **Languages** | Python, JavaScript, TypeScript, Go, Bash, SQL |
-| **Frontend** | React, Next.js, Tailwind CSS, Three.js |
-| **Backend** | Node.js, Flask, Express, REST APIs, WebSocket |
-| **Databases** | PostgreSQL, MongoDB, Redis, SQLite |
-| **Infrastructure** | Docker, nginx, Linux, Git, CI/CD automation |
-| **Observability** | Grafana, Prometheus, Loki, automated alerting |
-| **Architecture** | Event-driven, microservices, multi-tenant, SaaS |
+| **Languages** | Python, TypeScript, JavaScript, Go, Bash, SQL |
+| **Frontend** | React, Next.js 14, Tailwind CSS, Three.js |
+| **Backend** | Node.js, Flask, Express, FastAPI, WebSocket |
+| **AI/ML** | Gemini 2.5 Pro, Claude API, OpenAI, Ollama |
+| **Databases** | PostgreSQL (5), Redis (8), MongoDB, SQLite |
+| **Infrastructure** | Docker, nginx, Linux, Kubernetes (kind) |
+| **Observability** | Grafana, Prometheus, Loki, OpenTelemetry |
+| **Security** | Authelia SSO, LLDAP, HashiCorp Vault, fail-closed rate limiting |
+
+## Metrics
+
+| Metric | Value |
+|--------|-------|
+| Running containers | 70+ |
+| Deployed services | 44 |
+| Live domains | 50+ |
+| Codebase | 85K+ LOC |
+| Databases | 14 instances (PostgreSQL, Redis, MongoDB) |
+| Uptime monitoring | Prometheus + Grafana alerting |
+
+## Products Built on This Platform
+
+- **[FinePrint](https://fine-print.org)** — AI Terms of Service analyzer
+- **[Zeus Terminal](https://terminal.herakles.dev)** — AI-powered development terminal
+- **[Quits.AI](https://quits.herakles.dev)** — Behavioral health intervention platform
+- **[CTA Tracker](https://cta.herakles.dev)** — Real-time Chicago transit tracking
+- **[ICE-Aware](https://iceaware.herakles.dev)** — Geospatial intelligence (20 scrapers, 9.1M records)
+- **[Sextant](https://sextant.herakles.dev)** — Indoor WiFi positioning system
 
 ---
 
-## Background
-
-10 years in telecom infrastructure at a Dycom Industries subsidiary, leading fiber network design teams. During that time, I built the software tools my teams needed — AI-powered workflow automation, equipment selection apps for field crews, and data processing pipelines. Delivered a major fiber deployment project 1 year ahead of schedule.
-
-Now I build full-stack production systems. The domain expertise stays. The engineering ambition grew.
-
----
-
-**Contact**: hello@herakles.dev | [LinkedIn](https://www.linkedin.com/in/d-michael-piscitelli-2932a281/)
+Built and operated by [D. Michael Piscitelli](https://github.com/HeraclesBass) | [herakles.dev](https://herakles.dev) | hello@herakles.dev
