@@ -1,6 +1,6 @@
 # Hercules Platform
 
-Production microservices infrastructure running **70+ Docker containers** across **44 services** with event-driven architecture, AI agent orchestration, and full observability.
+Production microservices infrastructure running **70 Docker containers** across **31 projects** with event-driven architecture, AI agent orchestration, and full observability.
 
 **Live at [herakles.dev](https://herakles.dev)**
 
@@ -9,7 +9,7 @@ Production microservices infrastructure running **70+ Docker containers** across
 ```
                         +---------------+
                         |    nginx      |  SSL termination, rate limiting
-                        |   gateway     |  routing to 44+ services
+                        |   gateway     |  routing to 31+ projects
                         +-------+-------+
                                 |
               +-----------------+-----------------+
@@ -35,7 +35,7 @@ Production microservices infrastructure running **70+ Docker containers** across
   +-------------------------------------------------------------
 ```
 
-## Services (44 deployed)
+## Services (31 projects, 70 containers)
 
 | Category | Count | Examples |
 |----------|-------|---------|
@@ -52,7 +52,7 @@ Production microservices infrastructure running **70+ Docker containers** across
 - **Multi-Tenant Auth**: Authelia SSO with LDAP backend, role-based access control
 - **Zero-Downtime Deployment**: Automated builds, health checks, rollback capability via Docker Compose
 - **Full Observability**: Grafana dashboards per service, Loki log aggregation, Prometheus metrics scraping, automated alerting
-- **50+ Live Domains**: SSL-terminated nginx reverse proxy with rate limiting zones
+- **66 Live Domains**: SSL-terminated nginx reverse proxy with rate limiting zones
 
 ## Tech Stack
 
@@ -71,10 +71,10 @@ Production microservices infrastructure running **70+ Docker containers** across
 
 | Metric | Value |
 |--------|-------|
-| Running containers | 70+ |
-| Deployed services | 44 |
-| Live domains | 50+ |
-| Codebase | 85K+ LOC |
+| Running containers | 70 |
+| Docker-compose projects | 31 |
+| Live domains | 66 nginx sites |
+| Codebase | 400K+ LOC |
 | Databases | 14 instances (PostgreSQL, Redis, MongoDB) |
 | Uptime monitoring | Prometheus + Grafana alerting |
 
