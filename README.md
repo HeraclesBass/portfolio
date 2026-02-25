@@ -77,13 +77,23 @@ Production microservices infrastructure running **70 Docker containers** across 
 | Database engines | PostgreSQL, Redis, MongoDB |
 | Uptime monitoring | Prometheus + Grafana alerting |
 
+## Project Repos
+
+| Project | Description | Stack |
+|---------|-------------|-------|
+| [tos-analyzer](https://github.com/HeraclesBass/tos-analyzer) | AI-powered Terms of Service analyzer ([live](https://tos.herakles.dev)) | Next.js, TypeScript, Gemini, PostgreSQL, Redis |
+| [claude-trader-pro](https://github.com/HeraclesBass/claude-trader-pro) | Crypto trading platform with AI predictions | Python, FastAPI, React, WebSocket, PostgreSQL |
+| [3-body-problem](https://github.com/HeraclesBass/3-body-problem) | GPU-accelerated N-body physics simulation | Python, NVIDIA Warp, OpenGL |
+| [manifold-visualizer](https://github.com/HeraclesBass/manifold-visualizer) | WebGPU mathematical surface renderer ([live](https://manifold.herakles.dev)) | Python, Flask, WebGPU, WGSL |
+| [claude-orchestrator-showcase](https://github.com/HeraclesBass/claude-orchestrator-showcase) | V11 agent orchestration framework | JSON Schema, Bash hooks |
+| [iolaus-zeus](https://github.com/HeraclesBass/iolaus-zeus) | Dual-interface AI platform (CLI + web) | TypeScript, React, Python, FastAPI |
+
 ## Products Built on This Platform
 
-- **[FinePrint](https://fine-print.org)** — AI Terms of Service analyzer
+- **[FinePrint](https://tos.herakles.dev)** — AI Terms of Service analyzer
 - **[Zeus Terminal](https://terminal.herakles.dev)** — AI-powered development terminal
-- **[Quits.AI](https://quits.herakles.dev)** — Behavioral health intervention platform
+- **[Manifold Visualizer](https://manifold.herakles.dev)** — WebGPU mathematical surfaces
 - **[CTA Tracker](https://cta.herakles.dev)** — Real-time Chicago transit tracking
-- **[ICE-Aware](https://iceaware.herakles.dev)** — Geospatial intelligence (20 scrapers, 9.1M records)
 - **[Sextant](https://sextant.herakles.dev)** — Indoor WiFi positioning system
 
 ---
