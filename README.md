@@ -88,13 +88,13 @@ Production microservices infrastructure running **70 Docker containers** across 
 | [claude-orchestrator-showcase](https://github.com/HeraclesBass/claude-orchestrator-showcase) | V11 agent orchestration framework | JSON Schema, Bash hooks |
 | [iolaus-zeus](https://github.com/HeraclesBass/iolaus-zeus) | Dual-interface AI platform (CLI + web) | TypeScript, React, Python, FastAPI |
 
-## Products Built on This Platform
+## Live Products
 
 - **[FinePrint](https://tos.herakles.dev)** — AI Terms of Service analyzer
-- **[Zeus Terminal](https://terminal.herakles.dev)** — AI-powered development terminal
-- **[Manifold Visualizer](https://manifold.herakles.dev)** — WebGPU mathematical surfaces
 - **[CTA Tracker](https://cta.herakles.dev)** — Real-time Chicago transit tracking
 - **[Sextant](https://sextant.herakles.dev)** — Indoor WiFi positioning system
+- **Zeus Terminal** — AI-powered web terminal (authenticated)
+- **Manifold Visualizer** — WebGPU mathematical surfaces (authenticated)
 
 ---
 
