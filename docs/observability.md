@@ -1,5 +1,7 @@
 # Observability Stack
 
+> [Back to README](../README.md) | [Architecture](architecture.md) | [Services](services.md)
+
 ## Overview
 
 Full observability across all platform services using a modern monitoring ecosystem. Every service emits structured logs, exposes metrics, and participates in distributed tracing.

@@ -1,5 +1,7 @@
 # Hercules Platform Architecture
 
+> [Back to README](../README.md) | [Services](services.md) | [Observability](observability.md)
+
 ## System Overview
 
 ```

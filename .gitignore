@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Node (if applicable)
+node_modules/
+dist/
+build/
+
+# Python (if applicable)
+__pycache__/
+*.pyc
+.venv/
+
+# Logs
+*.log

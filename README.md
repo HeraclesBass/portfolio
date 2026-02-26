@@ -4,6 +4,8 @@ Production microservices infrastructure running **70 Docker containers** across 
 
 **Live at [herakles.dev](https://herakles.dev)** | [Resume (PDF)](D-Michael-Piscitelli-Resume.pdf) | [Resume](RESUME.md) | [hello@herakles.dev](mailto:hello@herakles.dev)
 
+> **Docs:** [Architecture](docs/architecture.md) | [Services](docs/services.md) | [Observability](docs/observability.md)
+
 ## Architecture
 
 ```
